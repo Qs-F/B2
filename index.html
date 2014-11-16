@@ -2,17 +2,20 @@
   <head>
     <meta charet="utf-8">
     <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,700|Source+Code+Pro|Raleway:600,200|Roboto:400,700,400italic,300italic,700italic,300' rel='stylesheet' type='text/css'>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+    <title>B2</title>
     <style>
 @font-face {
   font-family: GenWeb;
   font-weight: 100;
   src: url('http://queensya-server.appspot.com/queensya.themes.knowledge/fonts/GenWeb-Light.woff') format('woff');
 }
-/*@font-face {
+@font-face {
   font-family: GenWeb;
-  font-weight: 300;
-  src: url('../fonts/GenWeb-Normal.woff') format('woff');
-}*/
+  font-weight: 100;
+  src: url('http://localhost:9080/queensya.themes.knowledge/fonts/GenWeb-Light.woff') format('woff');
+}
+
 @font-face {
   font-family: GenWeb;
   font-weight: 400;
@@ -20,18 +23,28 @@
 }
 @font-face {
   font-family: GenWeb;
+  font-weight: 400;
+  src: url('http://localhost:9080/queensya.themes.knowledge/fonts/GenWeb-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: GenWeb;
   font-weight: 900;
   src: url('http://queensya-server.appspot.com/queensya.themes.knowledge/fonts/GenWeb-Bold.woff') format('woff');
 }
+@font-face {
+  font-family: GenWeb;
+  font-weight: 900;
+  src: url('http://localhost:9080/queensya.themes.knowledge/fonts/GenWeb-Bold.woff') format('woff');
+}
 
 
-* {margin:0;padding:0;-webkit-margin-before:0;-webkit-margin-after:0;-webkit-margin-start:0;-webkit-margin-end: 0;box-sizing:border-box;font-kerning: normal;font-family:'Roboto','Roboto-light','GenWeb',/*'GenWeb-Light','GenShinGothic-Regular','NotoSansJP-Regular','游ゴシック','YuGothic','koruri','ヒラギノ角ゴ ProN W3','Hiragino Kaku Gothic ProN','Meiryo','メイリオ',*/sans-serif;border:none;word-break:break-all;line-height:2em;color:rgb(100,100,100);outline:none;-webkit-font-smoothing:antialiased;}
+* {margin:0;padding:0;-webkit-margin-before:0;-webkit-margin-after:0;-webkit-margin-start:0;-webkit-margin-end: 0;box-sizing:border-box;font-kerning: normal;font-family:'Roboto','Roboto-light','GenWeb',/*'GenWeb-Light','GenShinGothic-Regular','NotoSansJP-Regular','游ゴシック','YuGothic','koruri','ヒラギノ角ゴ ProN W3','Hiragino Kaku Gothic ProN','Meiryo','メイリオ',*/sans-serif;border:none;word-break:break-all;line-height:2em;/*color:rgb(100,100,100);*/outline:none;-webkit-font-smoothing:antialiased;}
 
 html,
 body {
   width: 100%;
   height: 100%;
-  font-weight: 100;
 }
 
 ol,
@@ -49,18 +62,19 @@ header img {
 }
 
 body {
-  scrollbar-face-color: transparent;
-  scrollbar-track-color: transparent;
-  scrollbar-arrow-color: transparent;
-  scrollbar-highlight-color: transparent;
-  scrollbar-shadow-color: transparent;
-  scrollbar-3dlight-color: transparent;
-  scrollbar-darkshadow-color: transparent;
+  scrollbar-face-color: rgba(255,255,255,1);
+  scrollbar-track-color: rgba(255,255,255,1);
+  scrollbar-arrow-color: rgba(255,255,255,1);
+  scrollbar-highlight-color: rgba(255,255,255,1);
+  scrollbar-shadow-color: rgba(255,255,255,1);
+  scrollbar-3dlight-color: rgba(255,255,255,1);
+  scrollbar-darkshadow-color: rgba(255,255,255,1);
   z-index: -1;
 }
 
 ::selection {
-  background-color: rgba(100,100,100,.2);
+  background-color: rgb(0,200,255);
+  color: rgb(255,255,255);
 }
 
 ::-moz-selection {
@@ -68,35 +82,166 @@ body {
 }
 
 /*End of TuningCSS*/
+body {
+  width: 200vw;
+  overflow: hidden;
+  margin-left: 0;
+  transition: .762s;
+}
+
+.scroll {
+  margin-left: -100vw;
+}
 
 h1 {
-  font-size: 20vh;
+  font-size: 10vw;
   line-height: 100vh;
   color: rgb(0,200,255);
   float: left;
-  transform: rotate(90deg);
-//  transform-origin: 0 0;
-  width: 100vw;
-  height: 100vw;
+  display: block;
+  width: 70vw;
+  text-align: center;
+  -webkit-animation: minibig 2s infinite;
 }
 
 nav {
-  width: 50vw;
-  float: left;
+  position: absolute;
+  right: 0;
+  float: right;
+  background: rgb(0,200,255);
+  color: rgb(255,255,255);
+  width: 30vw;
+  box-shadow: rgba(0,0,0,.5) 0 0 10px;
+}
+
+ul {
+  display: block;
+  height: 100vh;
+  overflow: auto;
+}
+
+li {
+  display: block;
+/*  line-height: calc(100vh / 3);*/
+  padding: calc(100vh / 9) 5vw;
+  font-size: calc(100vh / 24);
+  min-height: calc(100vh / 9);
+  min-width: 30vw;
+  font-weight: 100;
+  transition: .5s;
+  cursor: pointer;
+  border-bottom: rgb(255,255,255) solid 1px;
+  box-shadow: transparent 0 0 0 inset;
+}
+
+/*ul:hover {
+  color: rgb();
+}*/
+
+li:hover {
+  background: rgb(0,170,225);
+  color: rgb(255,255,255);
+}
+
+article {
+  width: 100vw;
+  height: 100vh;
+  float: right;
+  background: rgb(0,200,255);
+  padding: 50px;
+  padding-right: calc(30vw + 50px);
+  color: rgb(255,255,255);
+  font-weight: 400;
+  overflow: auto;
+}
+
+article h2 {
+  font-size: 50px;
+  font-weight: 100;
+}
+
+article p {
+  line-height: 32.4px;
+  letter-spacing: 2.3px;
+  margin-bottom: 24.65px;
+}
+
+button {
+  position: relative;
+  right: -100vw;
+  top: 0;
+  height: 100vh;
+  width: 30vw;
+  background: rgb(255,255,255);
+  color: rgb(0,200,255);
+  font-size: 60px;
+  box-shadow: rgba(0,0,0,.5) 0 0 30px;
+  cursor: pointer;
+  font-weight: 100;
+}
+
+button:hover {
+  -webkit-animation: minibig 2s infinite;
+}
+
+card {
+  background: rgb(255,255,255);
+  display: block;
+  color: rgb(0,200,255);
+  box-shadow: rgba(0,0,0,.5) 0 2px 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+@-webkit-keyframes minibig{
+  0% { -webkit-transform: scale(1); }
+  50% { -webkit-transform: scale(0.9); }
+  100% { -webkit-transform: scale(1); }
 }
 
     </style>
+    <script>
+function contentScroll() {
+  $("#body").addClass("scroll");
+}
+
+function contentClose () {
+  $("#body").removeClass("scroll");
+}
+    </script>
   </head>
-  <body>
+  <body id="body">
     <header>
-      <h1>Queensya</h1>
-    <header>
+      <h1>B2</h1>
+    </header>
     <nav>
       <ul>
-        <li>要素1</li>
-        <li>de-liKeR</li>
-        <li>Appleウェブサイト</li>
+        <li onclick="contentScroll();" id="li">トップ今</li>
+        <li onclick="contentScroll();" id="li">概要</li>
+        <li>あああああ</li>
+        <li>ポートフォリオポートフォリオ</li>
       </ul>
     </nav>
     <article>
-    
+    <h2>このたび発表するB2についてです</h2>
+    <p>こんんちは。Queensya開発部門です。寒くなってきましたね〜今日このごろ、いかがお過ごしですか？<br>突然ですが、私達は、この度B2を発表します。<br>私のMacがおかげさまで悲鳴を上げております。</p>
+    <h2>B2に込められた想い</h2>
+    <p>私達は、B2に、文字に命を与える使命を授けました。
+    <br>その指名を果たすには年月と時間とユーザーフィードバックがたくさん必要です。</p>
+    <card>
+    <p>文字に命を与えるとは、どういうことなのか。</p>
+    <p>すなわちそれは、私達のこのデザイン自体であります。<br>日本語を使うとフラットデザインはかっこ良くなくなると言われてきました。しかしながら、日本語を使わないと、UXは落ちる一方であります。</p>
+    </card>
+    <p>この現状をどうにか克服しなければならない、現在の日本のwebは変わるべきである。そのために、このデザインを生みました。</p>
+    <p>このテーマを使った場合、私達はアイコンや、そういったたぐいのものを使うことは考えておりません。文字のみを使ってデザインするのです。サイトをつくり上げるのです。</p>
+    <p>しかしながら、そこには大きな壁がありました。</p>
+    <p><strong>フォント問題です。</strong></p>
+    <p>欧文にはたくさんのwebフォントがあり、いつでもどこでも同じ使い勝手を実現するのはたやすいです。しかし、日本語は重く、また作るのが大変であり、webフォントは数少なくしか存在しません。</p>
+    <p>そこで、B2では、GoogleとAdobeが共同開発したNotoSansJP(源ノ角ゴシック)をJIS第一水準までサブセット化したもの+いくつかの記号などを、Google Fontsのrobotoと合わせて使用しております。</p>
+    <p>ぜひ、そのフォントの軽さとパフォーマンスの高さを楽しんでいただけたらと思います。</p>
+    <h2>使用を推奨するところ</h2>
+    <p>現在、このデザインでは、メインと成る文章部分の背景がブルーカラーで、あまり目によく見やすいとは言えません。なので、このような色を使用する場合にはアプリケーションUIでの使用を考えております。</p>
+    <p>しかし、色を反転させて、文字の部分をrgb(100,100,100)などで、後をクリーム色など、そのような配色にした場合には読みやすく成るように調整されています。時と場合によって使い分けてください。</p>
+    <p>また、非常にネットワーク通信速度が遅いことが予測されるwebサイトでは使用を推奨しません。<br>遅くなるのももちろんありますが、webフォントを多用しているために、読み込まれるまで文字が表示されません。</p>
+    </article>
+    <button onclick="contentClose();">閉じる</button>
